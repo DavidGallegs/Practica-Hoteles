@@ -55,6 +55,7 @@ crear algoritmo que verifique es que es correcto.
 - Nombre: nombre (String 50) **OBLIGATIORIO SES Y FORM**
 - Apellido 1: apellido1 (String 50) **OBLIGATIORIO SES Y FORM**
 - Apellido 2: apellido2 (String 50)
+- Parentesco: parentesco (String 5) **MENOR 18 AÑO**
 - Tipo Documento: tipoDocumento (String 5)
 - Número Documento: numeroDocumento (String 15)
 - Teléfono: telefono (String 20)
@@ -62,6 +63,7 @@ crear algoritmo que verifique es que es correcto.
 
 NOTA: En caso del viajero tenemos que pedir que al menos rellene el campo teléfono o correo
 ya que el SES pide al menos uno de esos campos, pero no requiere que rellene los 2, solo 1.
+NOTA: Invesstigar valores de parentesco de TIPO_PARENTESCO.
 
 ## FORMULARIO CAMPOS
 
