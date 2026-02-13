@@ -9,7 +9,7 @@
 - Tipo Operación: tipoOperacion (String 1)
 - Tipo Comunicación: tipoComunicacion (String 2)
 
-### SOLICITUD/COMUNICACIÓN (A- RH)
+### SOLICITUD/COMUNICACIÓN (A - RH)
 
 #### ESTABLECIMIENTO (NO FORMULARIO)
 
@@ -21,6 +21,8 @@
     - direccion: direccion (String 100)
     - Código Postal: codigoPostal (String 20)
     - Pais: pais (String 3)
+
+Nota: Los datos del establecimiento los vamos a omitir, porque solo es necesario si no tenemos código.
 
 #### CONTRATO
 
