@@ -90,6 +90,13 @@ de forma interna VI. (De forma interna gestionamos este campo, ajustandolo a Str
 El resto de campos que no sean del **Bloque Persona**, son datos fijos que no se piden a nadie, es decir,
 el backend los tendrá en una variable a la hora de rellenar el XML.
 
+### CAMPOS SERVIDOR
+
+**id_solicitud**: El ID que se crea al hacer una solicitud a la dueña, en fase de espera.
+**id_reserva**: El ID que se crea al aprobar una solicitud.
+**id_SES**: El ID SES es un ID creciente que se incrementa por cada reserva, es decir, el ID_SES
+no es lo mismo que un ID_reserva. Ya que este es creciente y sigue una secuencia numérica ininturrumpida.
+
 ## DISEÑOS FINALES
 
 ### FORMULARIO
