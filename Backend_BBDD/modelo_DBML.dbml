@@ -1,0 +1,110 @@
+Table ARRENDADOR {
+  codigoArrendador int [primary key]
+  nombre varchar
+  apellido1 varchar
+  tipoDocumento varchar
+  documento varchar
+  tipo varchar
+  created_at timestamp
+}
+
+Table ESTABLECIMIENTO {
+  codigoEstablecimiento int [primary key]
+  tipo varchar
+  nombre varchar
+  idDireccion int [unique, ref: > DIRECCION.idDireccion]
+  codigoArrendador int [ref: > ARRENDADOR.codigoArrendador]
+  created_at timestamp
+}
+
+Table HABITACION {
+  idHabitacion int [primary key]
+  capacidad int
+  tipo varchar
+  precioTB decimal
+  precioTA decimal
+  maxCamaSupletoria int
+  precioCamaSupletoriaTB decimal
+  precioCamaSupletoriaTA decimal
+  codigoEstablecimiento int [ref: > ESTABLECIMIENTO.codigoEstablecimiento]
+}
+
+Table DIRECCION {
+  idDireccion int [primary key]
+  direccion varchar
+  direccionComplementaria varchar
+  municipio varchar
+  localidad varchar
+  cp varchar
+  pais varchar
+}
+
+Table SOLICITUD {
+  idSolicitud int [primary key]
+  idHabitacion int [ref: > HABITACION.idHabitacion]
+  numDocumentoPersona varchar
+  estado varchar
+  numPersonas int
+  fechaEntrada date
+  fechaSalida date
+}
+
+Table RESERVA {
+  idSES int [primary key]
+  fechaPagoConfirmado date
+  createdAt timestamp
+  idReserva int [unique]
+  idSolicitud int [ref: > SOLICITUD.idSolicitud, unique]
+}
+
+Table CONTRATO {
+  referencia int [primary key]
+  fechaContrato date
+  fechaEntrada date
+  fechaSalida date
+  numPersonas int
+  internet boolean
+  idPago int [unique]
+  idSES int [ref: > RESERVA.idSES, unique]
+}
+
+Table PAGO {
+  idPago int [primary key]
+  tipo varchar
+  referencia int [ref: > CONTRATO.referencia]
+}
+
+Table PARENTESCO {
+  codigoParentesco int [primary key]
+  descripcion varchar
+}
+
+Table PERSONA {
+  numDocumentoTitular int [primary key]
+  codigoParentesco int [ref: > PARENTESCO.codigoParentesco]
+  nombre varchar
+  apellido1 varchar
+  fechaNacimiento date
+  nacionalidad varchar
+  idDireccion int [ref: > DIRECCION.idDireccion]
+  telefono varchar
+  correo varchar
+  sexo varchar
+  rol varchar
+  tipoDocumento varchar
+  soporteDocumento varchar
+  idReserva int
+}
+
+Table USUARIOADMIN {
+  idUsuario int [primary key]
+  userName varchar
+  passwordHash varchar
+  email varchar
+}
+
+
+
+Ref: "PERSONA"."numDocumentoTitular" < "SOLICITUD"."numDocumentoPersona"
+
+Ref: "RESERVA"."idReserva" < "PERSONA"."idReserva"
