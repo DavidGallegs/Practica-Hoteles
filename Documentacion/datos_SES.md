@@ -103,8 +103,8 @@ no es lo mismo que un ID_reserva. Ya que este es creciente y sigue una secuencia
 
 ### FORMULARIO
 
-![Texto alternativo](./formulario.png)
+![UI_form](./images/formulario.png)
 
 ### INTERFAZ ADMINISTRADOR
 
-![Texto alternativo](./interfaz.png)
+![UI_administrador](./images/interfaz.png)
