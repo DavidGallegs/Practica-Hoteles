@@ -13,9 +13,9 @@
 
 #### ESTABLECIMIENTO (NO FORMULARIO)
 
-- Codigo: codigo (String 10)
+- Codigo: codigo (String 10) **Solo importa este**
 - Datos Establecimiento:
-  - Tipo: TIPO (String 10)
+  - Tipo: tipo (String 10)
   - Nombre: nombre (String 10)
   - Dirección: direccion (Bloque)
     - direccion: direccion (String 100)
@@ -86,11 +86,6 @@ de forma interna VI. (De forma interna gestionamos este campo, ajustandolo a Str
 **numPersonas**: Este valor se rellena según la canidad de veces que se rellena el formulario de personas.
 
 **fechaContrato**: Este valor se crea cuando se termina de rellenar el formulario y se envia finalmente al backend.
-
-### CAMPOS FIJOS
-
-El resto de campos que no sean del **Bloque Persona**, son datos fijos que no se piden a nadie, es decir,
-el backend los tendrá en una variable a la hora de rellenar el XML.
 
 ### CAMPOS SERVIDOR
 
