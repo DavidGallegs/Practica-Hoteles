@@ -33,10 +33,6 @@ CREATE TABLE ESTABLECIMIENTO (
     pais VARCHAR(3)
 ) ENGINE=InnoDB;
 
-CREATE TABLE PARENTESCO (
-    codigoParentesco VARCHAR(5) PRIMARY KEY,
-    descripcion VARCHAR(100) NOT NULL
-) ENGINE=InnoDB;
 
 CREATE TABLE PERSONA (
     idPersona INT AUTO_INCREMENT PRIMARY KEY,
@@ -59,11 +55,7 @@ CREATE TABLE PERSONA (
     documento VARCHAR(15),
     soporteDocumento VARCHAR(9),
     codigoParentesco VARCHAR(5),
-    CONSTRAINT fk_persona_parentesco
-        FOREIGN KEY (codigoParentesco)
-        REFERENCES PARENTESCO(codigoParentesco)
-        ON DELETE SET NULL
-        ON UPDATE CASCADE
+   
 ) ENGINE=InnoDB;
 
 CREATE TABLE SOLICITUD (
@@ -139,18 +131,4 @@ CREATE TABLE COMUNICACION_RESERVA (
         ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
-CREATE TABLE PERSONA_COMUNICACION (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    idComunicacion INT NOT NULL,
-    idPersona INT NOT NULL,
-    CONSTRAINT fk_pc_comunicacion
-        FOREIGN KEY (idComunicacion)
-        REFERENCES COMUNICACION_RESERVA(idComunicacion)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE,
-    CONSTRAINT fk_pc_persona
-        FOREIGN KEY (idPersona)
-        REFERENCES PERSONA(idPersona)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
-) ENGINE=InnoDB;
+
