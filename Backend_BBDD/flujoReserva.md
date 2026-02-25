@@ -107,20 +107,7 @@ Se crea un registro en **COMUNICACION_RESERVA** por la solicitud:
 
 ---
 
-## 5.-  Relación de personas con la comunicación
-
-Se registran todas las personas incluidas en la reserva en **PERSONA_COMUNICACION**:
-
-| id | idComunicacion | idPersona |
-|----|----------------|-----------|
-| 1  | 501            | 101       |
-| 2  | 501            | 102       |
-
-> Permite enviar ambas personas en la comunicación al Ministerio sin duplicar datos de las personas.
-
----
-
-## 6.-  Envío y respuesta del Ministerio
+## 5.-  Envío y respuesta del Ministerio
 
 Se genera el XML de la comunicación
 
