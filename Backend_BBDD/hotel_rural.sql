@@ -19,7 +19,7 @@ CREATE TABLE ARRENDADOR (
     apellido1 VARCHAR(100),
     apellido2 VARCHAR(100),
     tipoDocumento VARCHAR(5),
-    documento VARCHAR(15)
+    documento VARCHAR(15) NOT NULL UNIQUE
 ) ENGINE=InnoDB;
 
 CREATE TABLE ESTABLECIMIENTO (
@@ -52,16 +52,15 @@ CREATE TABLE PERSONA (
     correo VARCHAR(250),
     sexo VARCHAR(1),
     tipoDocumento VARCHAR(20),
-    documento VARCHAR(15),
+    documento VARCHAR(15) NOT NULL UNIQUE,
     soporteDocumento VARCHAR(9),
-    codigoParentesco VARCHAR(5),
-   
+    codigoParentesco VARCHAR(5) 
 ) ENGINE=InnoDB;
 
 CREATE TABLE SOLICITUD (
     idSolicitud INT AUTO_INCREMENT PRIMARY KEY,
     idPersona INT NOT NULL,
-    estado VARCHAR(20) COMMENT 'PENDIENTE, PAGADO, FINALIZADO, CANCELADO',
+    estado ENUM('PENDIENTE','PAGADO','FINALIZADO','CANCELADO') NOT NULL,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_solicitud_persona
         FOREIGN KEY (idPersona)
