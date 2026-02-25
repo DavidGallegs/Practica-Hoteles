@@ -1,0 +1,65 @@
+<alt:peticion xmlns:alt="http://www.neg.hospedajes.mir.es/altaParteHospedaje">
+  <solicitud>
+    <codigoEstablecimiento>0000400899</codigoEstablecimiento>
+    <comunicacion>
+        <contrato>
+            <referencia>RES-QUINO-0001</referencia>
+            <fechaContrato>2026-02-25</fechaContrato>
+            <fechaEntrada>2026-03-10T14:00:00</fechaEntrada>
+            <fechaSalida>2026-03-15T12:00:00+01:00</fechaSalida>
+            <numPersonas>2</numPersonas>
+            <numHabitaciones>1</numHabitaciones>
+            <internet>false</internet>
+            <pago>
+                <tipoPago>TRANS</tipoPago>
+                <fechaPago>2026-02-25</fechaPago>
+            </pago>
+        </contrato>
+
+        <persona>
+            <rol>TI</rol>
+            <nombre>Carlos</nombre>
+            <apellido1>Martínez</apellido1>
+            <apellido2>López</apellido2>
+            <tipoDocumento>NIF</tipoDocumento>
+            <numeroDocumento>33333333C</numeroDocumento>
+            <soporteDocumento>NIF</soporteDocumento>
+            <fechaNacimiento>1987-04-12</fechaNacimiento>
+            <nacionalidad>ESP</nacionalidad>
+            <sexo>H</sexo>
+            <direccion>
+                <direccion>Calle Ejemplo 10</direccion>
+                <direccionComplementaria></direccionComplementaria>
+                <codigoMunicipio>28079</codigoMunicipio>
+                <codigoPostal>28013</codigoPostal>
+                <pais>ESP</pais>
+            </direccion>
+            <telefono>600111222</telefono>
+            <correo>carlos@test.com</correo>
+        </persona>
+
+        <persona>
+            <rol>VI</rol>
+            <nombre>Juan</nombre>
+            <apellido1>Martínez</apellido1>
+            <apellido2>López</apellido2>
+            <tipoDocumento>NIF</tipoDocumento>
+            <numeroDocumento>77777777J</numeroDocumento>
+            <soporteDocumento>NIF</soporteDocumento>
+            <fechaNacimiento>2014-06-05</fechaNacimiento>
+            <nacionalidad>ESP</nacionalidad>
+            <sexo>H</sexo>
+            <direccion>
+                <direccion>Calle Ejemplo 10</direccion>
+                <direccionComplementaria></direccionComplementaria>
+                <codigoMunicipio>28079</codigoMunicipio>
+                <codigoPostal>28013</codigoPostal>
+                <pais>ESP</pais>
+            </direccion>
+            <telefono>600555666</telefono>
+            <correo>juan@test.com</correo>
+            <parentesco>HJ</parentesco>
+        </persona>
+    </comunicacion>
+  </solicitud>
+</alt:peticion>
