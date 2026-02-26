@@ -36,7 +36,6 @@ CREATE TABLE ESTABLECIMIENTO (
 
 CREATE TABLE PERSONA (
     idPersona INT AUTO_INCREMENT PRIMARY KEY,
-    rol VARCHAR(10) COMMENT 'CLIENTE, VIAJERO, ETC',
     nombre VARCHAR(50) NOT NULL,
     apellido1 VARCHAR(50) NOT NULL,
     apellido2 VARCHAR(50),
@@ -53,8 +52,7 @@ CREATE TABLE PERSONA (
     sexo VARCHAR(1),
     tipoDocumento VARCHAR(20),
     documento VARCHAR(15) NOT NULL UNIQUE,
-    soporteDocumento VARCHAR(9),
-    codigoParentesco VARCHAR(5) 
+    soporteDocumento VARCHAR(9), 
 ) ENGINE=InnoDB;
 
 CREATE TABLE SOLICITUD (
@@ -131,3 +129,18 @@ CREATE TABLE COMUNICACION_RESERVA (
 ) ENGINE=InnoDB;
 
 
+CREATE TABLE PERSONA_COMUNICACION (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    idComunicacion INT NOT NULL,
+    idPersona INT NOT NULL,
+    rol ENUM('TI','VI') DEFAULT 'VI' COMMENT 'Titular o Viajero',
+    parentesco VARCHAR(5) NULL,
+    CONSTRAINT fk_pc_comunicacion FOREIGN KEY (idComunicacion)
+        REFERENCES COMUNICACION_RESERVA(idComunicacion)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    CONSTRAINT fk_pc_persona FOREIGN KEY (idPersona)
+        REFERENCES PERSONA(idPersona)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+)ENGINE=InnoDB;

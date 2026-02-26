@@ -8,8 +8,8 @@
             <fechaEntrada>2026-03-10T14:00:00</fechaEntrada>
             <fechaSalida>2026-03-15T12:00:00+01:00</fechaSalida>
             <numPersonas>2</numPersonas>
-            <numHabitaciones>1</numHabitaciones>
-            <internet>false</internet>
+            <!-- <numHabitaciones>1</numHabitaciones> -->
+            <!--<internet>false</internet> -->
             <pago>
                 <tipoPago>TRANS</tipoPago>
                 <fechaPago>2026-02-25</fechaPago>

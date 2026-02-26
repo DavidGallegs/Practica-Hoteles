@@ -32,6 +32,8 @@ $soapFinal = preg_replace(
 // 6️.- Guardar SOAP final
 file_put_contents($soapOutputFile, $soapFinal);
 
+//Borrar ZIP porque ya no hace falta
+unlink($zipFile);
 echo "SOAP generado correctamente en '$soapOutputFile'.\n";
 
 ?>
