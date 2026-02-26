@@ -52,7 +52,7 @@ CREATE TABLE PERSONA (
     sexo VARCHAR(1),
     tipoDocumento VARCHAR(20),
     documento VARCHAR(15) NOT NULL UNIQUE,
-    soporteDocumento VARCHAR(9), 
+    soporteDocumento VARCHAR(9)
 ) ENGINE=InnoDB;
 
 CREATE TABLE SOLICITUD (
