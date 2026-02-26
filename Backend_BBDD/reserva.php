@@ -1,6 +1,4 @@
 <?php
-
-
 // 1️.- Ficheros
 $xmlClientesFile = "input/datosClientes.xml";      // tu XML con datos
 $soapTemplateFile = "input/comunicacion.xml";     // plantilla SOAP
