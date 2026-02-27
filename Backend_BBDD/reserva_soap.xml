@@ -1,0 +1,17 @@
+<soapenv:Envelope   xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:com="http://www.soap.servicios.hospedajes.mir.es/comunicacion">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <com:comunicacionRequest>
+        <peticion>
+            <cabecera>
+                <codigoArrendador>0000253722</codigoArrendador>
+                <aplicacion>Web</aplicacion>
+                <tipoOperacion>A</tipoOperacion>
+                <tipoComunicacion>PV</tipoComunicacion>
+            </cabecera>
+            <solicitud>UEsDBBQAAgAIAJCxWVwqm7ONmwIAADAKAAARAAAAZGF0b3NDbGllbnRlcy54bWztVtFu2jAUfZ+0f0B9nULsFGiLMmsTY2qrlbHC9m7CpXXl2JFt1Gr/tKd9Qn9sNyaEYNKuT5MqLUICn3uOc3N9zyUpl25YgBOZ0KrzkEtlhwi9P7p1rhjG8f39fVfBTfdW2wKW/A5sNxemCzZGFp9y4+B8Gzpib990OqnVEndz66VfIpDppbjRY+v4QkImcgHKaUbw6hFyenaWxu2MWp6vlch4mWGFVbhyhte8GjewAgMqE5xdj2fRt+8Xk68R3oymcSMUiFaQ3fLRdseEJIOIJFHST+P9SJtsXMaWvFIdR5TMaW9ICH4q+ZbRpp5xKZri/pwmG/E7QndbVLRgB7XOp2CsVtyyJI2by0PmOV8I58sIllHP3oMChVAOjALHVlxaSON6HfAKfhPWxeNOFHpaxubXHyezNK7XLVz/iD54UPoWSRoH9yw7qD6gBlxsinHQIVqy+QW2A36HZdL5wgAbcSO1xRJtlgGJFyDxNDRlV2iAx18KfqbxDnyCnbAvj7+LJjUJqWWJPulsnfv+n1x83lRtBx0eKphG+Li6Rv5w90KB0upCo3eDmx2gbQ074bVD6dnpSUR6EU2qw2rEwlR9l/kmXrLxbIoZNpEwPXjQ7BwTKr+D2FIYyIJh0BIccSmhM76DvJC6Q9FHLxOONAqgfHxucE40ZEGkZZPNHLsqx5UoBDbzKTmpx9sOflI51TgCZSmjx1tZhbVoCi7sppT+V+iRpx43dSBhpZVmAxyKlCYJnl6NBdxMGwOaZd4PHxxY18V5XObm8aYFd2Z7mQN/POvAyzVXr85/J9V1+Y/8lxDaiwjOy/5//71O//X7/cFg8Ff/3aEbnnNflQ++2yApw6O7LJOql+023f5zBq9XZRvu3uDSuPmGyP4AUEsBAj8DFAACAAgAkLFZXCqbs42bAgAAMAoAABEAAAAAAAAAAAAAALaBAAAAAGRhdG9zQ2xpZW50ZXMueG1sUEsFBgAAAAABAAEAPwAAAMoCAAAAAA==</solicitud>
+        </peticion>
+      </com:comunicacionRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,17 @@
+<soapenv:Envelope   xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:com="http://www.soap.servicios.hospedajes.mir.es/comunicacion">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <com:comunicacionRequest>
+        <peticion>
+            <cabecera>
+                <codigoArrendador>0000253722</codigoArrendador>
+                <aplicacion>Web</aplicacion>
+                <tipoOperacion>A</tipoOperacion>
+                <tipoComunicacion>PV</tipoComunicacion>
+            </cabecera>
+            <solicitud></solicitud>
+        </peticion>
+      </com:comunicacionRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
