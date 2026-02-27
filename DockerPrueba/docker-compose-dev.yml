@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  # 1. App (PHP + Apache)
+  php_web:
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - base_datos
+
+  # 2. Base de Datos (MySQL)
+  base_datos:
+    image: mysql:8.0
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=escuela
+    volumes:
+      - mysql_datos:/var/lib/mysql
+
+  # 3. El Gestor Gráfico (phpMyAdmin)
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      - PMA_HOST=base_datos # phpMyAdmin sabe dónde está el servidor MySQL
+      - MYSQL_ROOT_PASSWORD=root
+    depends_on:
+      - base_datos
+
+volumes:
+  mysql_datos:
