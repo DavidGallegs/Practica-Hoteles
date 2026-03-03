@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<ns0:Envelope xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:ns1="http://www.soap.servicios.hospedajes.mir.es/comunicacion">
+  <ns0:Header/>
+  <ns0:Body>
+    <ns1:comunicacionRequest>
+      <peticion>
+        <cabecera>
+          <codigoArrendador>0000253722</codigoArrendador>
+          <aplicacion>APP_Pruebas</aplicacion>
+          <tipoOperacion>C</tipoOperacion>
+        </cabecera>
+        <solicitud>
+        </solicitud>
+      </peticion>
+    </ns1:comunicacionRequest>
+  </ns0:Body>
+</ns0:Envelope>

@@ -94,25 +94,29 @@ CREATE TABLE ADMINISTRADOR (
 -- INTEGRACIÓN MINISTERIO
 -- ==========================================
 
-CREATE TABLE LOTE (
-    idLote INT AUTO_INCREMENT PRIMARY KEY,
-    codigoLoteMinisterio VARCHAR(100),
-    tipoOperacion VARCHAR(1) COMMENT 'A=Alta, C=Consulta, B=Anulacion',
-    tipoComunicacion VARCHAR(2) COMMENT 'PV=Partes Viajeros, RH=Reservas Hospedaje',
-    codigoEstado INT,
-    descEstado VARCHAR(200),
-    estado VARCHAR(20) COMMENT 'PENDIENTE, PROCESADO, ERROR',
-    fechaPeticion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    fechaProcesamiento TIMESTAMP NULL,
-    identificadorUsuario VARCHAR(50),
-    nombreUsuario VARCHAR(150),
-    aplicacion VARCHAR(50)
+CREATE TABLE COMUNICACIONES_SES (
+    id_comuSES INT AUTO_INCREMENT PRIMARY KEY COMMENT 'Identificador interno de la comunicación SES',
+    codigo_lote VARCHAR(100) NULL COMMENT 'El Ministerio lo asigna al procesar el lote. Inicialmente queda null.',
+    codigo_comunicacion VARCHAR(500) NULL COMMENT 'Identificador individual de comunicación en SES',
+    tipo_comunicacion VARCHAR(10) NULL COMMENT 'PV=Parte Viajeros o RH=Reserva Hospedaje',
+    tipo_operacion VARCHAR(1) NULL COMMENT 'A=Alta, C=Consulta, B=Anulacion',
+    estado_ses VARCHAR(50) NULL COMMENT 'Estado agregado actual en SES',
+    codigo_estado INT NULL COMMENT 'Inicialmente null o 0, luego se actualiza con la respuesta del Ministerio',
+    descripcion_estado VARCHAR(255) NULL COMMENT 'Descripción del estado devuelto por SES',
+    anulada BOOLEAN DEFAULT FALSE COMMENT 'Indica si la comunicación está anulada',
+    fecha_peticion TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de petición registrada por SES',
+    fecha_procesamiento TIMESTAMP NULL COMMENT 'Fecha de procesamiento registrada por SES',
+    codigo_arrendador VARCHAR(50) NULL COMMENT 'Código del arrendador/establecimiento en SES',
+    aplicacion VARCHAR(50) NULL COMMENT 'Nombre del aplicativo cliente que lanza la petición',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de creación del registro',
+    updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT 'Fecha de última actualización'
+
 ) ENGINE=InnoDB;
 
 CREATE TABLE COMUNICACION_RESERVA (
     idComunicacion INT AUTO_INCREMENT PRIMARY KEY,
     idSolicitud INT NOT NULL,
-    idLote INT,
+    id_comuSES INT,
     codigoMinisterio VARCHAR(36),
     estadoProcesamiento VARCHAR(20) COMMENT 'PENDIENTE, ACEPTADA, RECHAZADA',
     ordenEnvio INT,
@@ -121,9 +125,9 @@ CREATE TABLE COMUNICACION_RESERVA (
         REFERENCES SOLICITUD(idSolicitud)
         ON DELETE CASCADE
         ON UPDATE CASCADE,
-    CONSTRAINT fk_comunicacion_lote
-        FOREIGN KEY (idLote)
-        REFERENCES LOTE(idLote)
+    CONSTRAINT fk_comunicacion_COMUNICACIONES_SES
+        FOREIGN KEY (id_comuSES)
+        REFERENCES COMUNICACIONES_SES(id_comuSES)
         ON DELETE SET NULL
         ON UPDATE CASCADE
 ) ENGINE=InnoDB;
@@ -144,3 +148,19 @@ CREATE TABLE PERSONA_COMUNICACION (
         ON DELETE CASCADE
         ON UPDATE CASCADE
 )ENGINE=InnoDB;
+
+CREATE TABLE OPERACIONES_SES (
+    id_operaciones BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT 'Identificador interno de la operación',
+    idSolicitud INT NOT NULL COMMENT 'Referencia a la solicitud de reserva',
+    idComunicacion INT NULL COMMENT 'Referencia a la comunicación asociada',
+    operacion VARCHAR(30) NOT NULL COMMENT 'Tipo de operación (ALTA, CONSULTA, ANULAR, etc.)',
+    http_status INT NULL COMMENT 'Código de estado HTTP de la respuesta',
+    ses_codigo INT NULL COMMENT 'Código funcional devuelto por SES',
+    ses_descripcion VARCHAR(255) NULL COMMENT 'Descripción funcional devuelta por SES',
+    resultado_tecnico VARCHAR(20) NOT NULL COMMENT 'Resultado técnico (OK, ERROR_HTTP, TIMEOUT)',
+    resultado_funcional VARCHAR(20) NOT NULL COMMENT 'Resultado lógico (OK, ERROR_FUNCIONAL)',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de ejecución de la operación',
+    FOREIGN KEY (idSolicitud) REFERENCES SOLICITUD(idSolicitud),
+    FOREIGN KEY (idComunicacion) REFERENCES COMUNICACION_RESERVA(idComunicacion)
+
+) ENGINE=InnoDB;

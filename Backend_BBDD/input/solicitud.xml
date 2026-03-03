@@ -1,0 +1,4 @@
+<con:lotes xmlns:con="http://www.neg.hospedajes.mir.es/consultarComunicacion">
+<!--1 or more repetitions:-->
+<con:lote></con:lote>
+</con:lotes>
